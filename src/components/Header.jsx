@@ -52,7 +52,8 @@ function Header() {
       <div className="container header-content">
         <div className="nav-left">
           <Link to="/" className="logo">
-            Challenge Tracker
+            <img src="/check.png" alt="Challenge Tracker" className="logo-icon" />
+            <span>Challenge Tracker</span>
           </Link>
           
           {/* Main navigation menu */}

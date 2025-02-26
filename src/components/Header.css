@@ -54,19 +54,22 @@
 }
 
 .logo {
-  color: white;
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  text-decoration: none;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  position: relative;
-  padding: 0.25rem 0;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
-.logo::before {
+.logo-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* .logo::before {
   content: '';
   width: 1.75rem;
   height: 1.75rem;
@@ -75,8 +78,8 @@
   display: inline-block;
   position: relative;
   box-shadow: 0 0 10px rgba(66, 133, 244, 0.5);
-}
-
+} */
+/* 
 .logo::after {
   content: '✓';
   position: absolute;
@@ -84,7 +87,7 @@
   color: white;
   font-size: 1rem;
   font-weight: bold;
-}
+} */
 
 .nav-actions {
   display: flex;

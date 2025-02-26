@@ -8,7 +8,7 @@ function ChallengeDetails() {
   const navigate = useNavigate();
   const [challenge, setChallenge] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-
+  
   useEffect(() => {
     loadChallengeData();
   }, [id]);
