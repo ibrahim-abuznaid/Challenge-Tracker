@@ -3,6 +3,8 @@
  * Allows users to authenticate with just their email
  */
 
+import { logEmailActivity } from './logger';
+
 // Check if email is valid format
 const isValidEmail = (email) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -42,6 +44,8 @@ export const signInWithEmail = (email) => {
     // Set current user in local storage
     localStorage.setItem('currentUser', JSON.stringify(user));
     
+    logEmailActivity(email, 'login');
+    
     return { success: true, user };
   } catch (error) {
     console.error('Error signing in:', error);
@@ -51,8 +55,13 @@ export const signInWithEmail = (email) => {
 
 // Sign out current user
 export const signOut = () => {
+  const email = localStorage.getItem('userEmail');
+  if (email) {
+    logEmailActivity(email, 'logout');
+  }
   try {
     localStorage.removeItem('currentUser');
+    localStorage.removeItem('userEmail');
     return { success: true };
   } catch (error) {
     console.error('Error signing out:', error);
@@ -109,4 +118,34 @@ export const getUserStorageKey = (key) => {
   const user = getCurrentUser();
   if (!user) return key; // Fallback for when not logged in
   return `${user.id}_${key}`;
+};
+
+export const loginWithEmail = (email) => {
+  try {
+    localStorage.setItem('userEmail', email);
+    logEmailActivity(email, 'login');
+    return true;
+  } catch (error) {
+    console.error('Login failed:', error);
+    return false;
+  }
+};
+
+export const logoutUser = () => {
+  const email = localStorage.getItem('userEmail');
+  if (email) {
+    logEmailActivity(email, 'logout');
+  }
+  localStorage.removeItem('userEmail');
+};
+
+export const signupUser = (email) => {
+  try {
+    localStorage.setItem('userEmail', email);
+    logEmailActivity(email, 'signup');
+    return true;
+  } catch (error) {
+    console.error('Signup failed:', error);
+    return false;
+  }
 }; 

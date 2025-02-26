@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { getUserStorageKey } from '../utils/emailAuth';
 import { v4 as uuidv4 } from 'uuid';
 import './AdminDashboard.css';
+import EmailLogs from '../components/EmailLogs';
 
 function AdminDashboard() {
   const navigate = useNavigate();
@@ -439,6 +440,9 @@ function AdminDashboard() {
           )}
         </div>
       </div>
+      
+      {/* Add Email Logs section */}
+      <EmailLogs />
     </div>
   );
 }
