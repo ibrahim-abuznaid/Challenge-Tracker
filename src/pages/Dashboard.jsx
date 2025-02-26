@@ -116,7 +116,7 @@ function Dashboard() {
             ) : (
               <div className="empty-state">
                 <p>You haven't enrolled in any challenges yet.</p>
-                <Link to="/challenges" className="btn-primary">
+                <Link to="/challenges" className="btn-browse-challenges">
                   Browse Challenges
                 </Link>
               </div>
