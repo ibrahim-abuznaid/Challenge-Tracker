@@ -440,4 +440,40 @@
 [data-theme='dark'] .add-task-btn:hover {
   background-color: rgba(66, 133, 244, 0.1);
   border-color: #6ea8ff;
+}
+
+/* Style the select dropdowns for dark theme */
+.form-group select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: rgba(30, 41, 59, 0.8);
+  color: var(--text-color);
+  font-size: 1rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23cbd5e1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1.2em;
+}
+
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+}
+
+.form-group select:hover {
+  border-color: var(--primary-color);
+}
+
+/* Style the select options */
+.form-group select option {
+  background-color: rgba(30, 41, 59, 0.95);
+  color: var(--text-color);
+  padding: 12px;
 } 
