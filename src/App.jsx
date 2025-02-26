@@ -15,6 +15,7 @@ import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import { add75HardChallenge } from './utils/addHardChallenge';
 import { add7DayReadingChallenge } from './utils/addReadingChallenge';
+import { addDefaultChallenges } from './utils/addDefaultChallenges';
 import './App.css';
 import './styles/buttons.css';
 import AdminDashboard from './pages/AdminDashboard';
@@ -24,6 +25,7 @@ function App() {
     // Add challenges when app initializes
     add75HardChallenge();
     add7DayReadingChallenge();
+    addDefaultChallenges();
   }, []);
 
   return (

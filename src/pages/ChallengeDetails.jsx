@@ -1,46 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { challenges } from '../data/challenges';
 import { getUserStorageKey } from '../utils/emailAuth';
-import { v4 as uuidv4 } from 'uuid';
 import './ChallengeDetails.css';
 
 function ChallengeDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [challenge, setChallenge] = useState(null);
-  const [isEnrolled, setIsEnrolled] = useState(false);
-  const [enrolledChallengeId, setEnrolledChallengeId] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  
+
   useEffect(() => {
     loadChallengeData();
   }, [id]);
-  
+
   const loadChallengeData = () => {
     setIsLoading(true);
     
-    // First check in global challenges
+    // Get challenge from all possible sources
+    const customChallengesKey = getUserStorageKey('customChallenges');
+    const customChallenges = JSON.parse(localStorage.getItem(customChallengesKey) || '[]');
+    
     const globalChallenges = JSON.parse(localStorage.getItem('globalChallenges') || '[]');
-    let foundChallenge = globalChallenges.find(c => c.id === id);
+    const defaultChallenges = JSON.parse(localStorage.getItem('defaultChallenges') || '[]');
     
-    // If not found in global, check in user's custom challenges
-    if (!foundChallenge) {
-      const customChallengesKey = getUserStorageKey('customChallenges');
-      const customChallenges = JSON.parse(localStorage.getItem(customChallengesKey) || '[]');
-      foundChallenge = customChallenges.find(c => c.id === id);
-    }
+    // Combine all challenges
+    const allChallenges = [...customChallenges, ...globalChallenges, ...defaultChallenges];
     
-    // Check if user is enrolled in this challenge
-    const enrolledChallengesKey = getUserStorageKey('enrolledChallenges');
-    const enrolledChallenges = JSON.parse(localStorage.getItem(enrolledChallengesKey) || '[]');
-    const isEnrolled = enrolledChallenges.some(c => c.challengeId === id);
+    // Find the challenge
+    const foundChallenge = allChallenges.find(c => c.id === id);
     
     if (foundChallenge) {
-      setChallenge(foundChallenge);
-      setIsEnrolled(isEnrolled);
+      // Check if user is enrolled
+      const enrolledChallengesKey = getUserStorageKey('enrolledChallenges');
+      const enrolledChallenges = JSON.parse(localStorage.getItem(enrolledChallengesKey) || '[]');
+      const isEnrolled = enrolledChallenges.some(c => c.challengeId === id);
+      
+      setChallenge({
+        ...foundChallenge,
+        enrolled: isEnrolled
+      });
     } else {
-      // Challenge not found
       console.error(`Challenge with ID ${id} not found`);
     }
     
@@ -206,7 +205,7 @@ function ChallengeDetails() {
           </div>
           
           <div className="challenge-actions">
-          {!isEnrolled ? (
+          {!challenge.enrolled ? (
               <button 
                 className="btn btn-primary" 
                 onClick={enrollInChallenge}

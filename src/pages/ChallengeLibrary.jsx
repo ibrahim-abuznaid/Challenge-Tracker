@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import ChallengeCard from '../components/ChallengeCard';
 import { getUserStorageKey } from '../utils/emailAuth';
+import { addDefaultChallenges } from '../utils/addDefaultChallenges';
 import './ChallengeLibrary.css';
 
 function ChallengeLibrary() {
@@ -11,6 +12,9 @@ function ChallengeLibrary() {
   const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
+    // Ensure default challenges are added
+    addDefaultChallenges();
+    // Load all challenges
     loadAllChallenges();
   }, []);
   
@@ -20,19 +24,39 @@ function ChallengeLibrary() {
     // Get user-specific custom challenges
     const customChallengesKey = getUserStorageKey('customChallenges');
     const customChallenges = JSON.parse(localStorage.getItem(customChallengesKey) || '[]');
+    console.log('Custom Challenges:', customChallenges);
     
-    // Get global challenges created by admin
+    // Get global challenges
     const globalChallenges = JSON.parse(localStorage.getItem('globalChallenges') || '[]')
       .map(challenge => ({
         ...challenge,
         isGlobal: true
       }));
+    console.log('Global Challenges:', globalChallenges);
     
-    // Only combine custom and global challenges
-    setAllChallenges([
-      ...customChallenges,
-      ...globalChallenges
-    ]);
+    // Get default challenges
+    const defaultChallenges = JSON.parse(localStorage.getItem('defaultChallenges') || '[]')
+      .map(challenge => ({
+        ...challenge,
+        isDefault: true
+      }));
+    console.log('Default Challenges:', defaultChallenges);
+    
+    // Get enrolled challenges
+    const enrolledChallengesKey = getUserStorageKey('enrolledChallenges');
+    const enrolledChallenges = JSON.parse(localStorage.getItem(enrolledChallengesKey) || '[]');
+    const enrolledIds = enrolledChallenges.map(c => c.challengeId);
+    
+    // Include all challenges
+    const allChallenges = [...customChallenges, ...globalChallenges, ...defaultChallenges]
+      .map(challenge => ({
+        ...challenge,
+        enrolled: enrolledIds.includes(challenge.id)
+      }));
+    
+    console.log('All Challenges:', allChallenges);
+    
+    setAllChallenges(allChallenges);
     
     setIsLoading(false);
   };

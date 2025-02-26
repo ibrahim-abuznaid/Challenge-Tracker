@@ -192,7 +192,7 @@ function ActiveChallenge() {
   }
   
   if (!challenge) {
-    return (
+  return (
       <div className="active-challenge-page">
         <div className="container">
           <div className="error-state">
@@ -201,7 +201,7 @@ function ActiveChallenge() {
             <button onClick={() => navigate('/dashboard')} className="btn btn-primary">
               Back to Dashboard
             </button>
-          </div>
+            </div>
         </div>
       </div>
     );
@@ -280,7 +280,7 @@ function ActiveChallenge() {
                       <div className="task-checkbox">
                         {isCompleted && <span className="checkmark">✓</span>}
                       </div>
-                      <div className="task-content">
+                    <div className="task-content">
                         <div className="task-text">
                           {typeof task === 'object' ? task.text || task.title : task}
                         </div>
@@ -288,8 +288,8 @@ function ActiveChallenge() {
                           <div className="task-description">
                             {task.description}
                           </div>
-                        )}
-                      </div>
+                      )}
+                    </div>
                     </div>
                   );
                 })}

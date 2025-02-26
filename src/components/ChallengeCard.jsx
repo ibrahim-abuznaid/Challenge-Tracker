@@ -1,10 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './ChallengeCard.css';
 
-function ChallengeCard({ challenge, onClick }) {
+function ChallengeCard({ challenge }) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/challenge/${challenge.id}`);
+  };
+
   return (
-    <div className="challenge-card" onClick={onClick}>
+    <div className="challenge-card" onClick={handleClick}>
       <div 
         className="challenge-card-header" 
         style={{ 
@@ -36,7 +42,13 @@ function ChallengeCard({ challenge, onClick }) {
         </div>
         
         <div className="challenge-card-footer">
-          <button className="btn btn-primary btn-sm">
+          <button 
+            className="btn btn-primary btn-sm"
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate(`/challenge/${challenge.id}`);
+            }}
+          >
             VIEW DETAILS
           </button>
           {challenge.enrolled && (
