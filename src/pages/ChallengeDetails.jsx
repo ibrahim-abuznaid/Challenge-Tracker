@@ -172,8 +172,8 @@ function ChallengeDetails() {
       <div className="container">
         <div className="challenge-details-card" style={{borderTop: `4px solid ${challenge.color || '#4285f4'}`}}>
           <div className="challenge-header">
-            <h1>{challenge.title}</h1>
-            <div className="challenge-meta">
+          <h1>{challenge.title}</h1>
+          <div className="challenge-meta">
               <span className="challenge-category">
                 <i className="fas fa-tag"></i> {challenge.category}
               </span>
@@ -188,8 +188,8 @@ function ChallengeDetails() {
           
           <div className="challenge-description">
             <p>{challenge.description || 'No description available for this challenge.'}</p>
-          </div>
-          
+      </div>
+      
           <div className="challenge-tasks">
             <h2><i className="fas fa-tasks"></i> Daily Tasks</h2>
             {renderTasks()}
@@ -206,14 +206,14 @@ function ChallengeDetails() {
           </div>
           
           <div className="challenge-actions">
-            {!isEnrolled ? (
+          {!isEnrolled ? (
               <button 
                 className="btn btn-primary" 
                 onClick={enrollInChallenge}
               >
                 <i className="fas fa-play-circle"></i> Start Challenge
-              </button>
-            ) : (
+            </button>
+          ) : (
               <button 
                 className="btn btn-primary" 
                 onClick={() => navigate(`/active-challenge/${challenge.id}`)}
@@ -226,8 +226,8 @@ function ChallengeDetails() {
               onClick={() => navigate(-1)}
             >
               <i className="fas fa-arrow-left"></i> Go Back
-            </button>
-          </div>
+              </button>
+            </div>
         </div>
       </div>
     </div>

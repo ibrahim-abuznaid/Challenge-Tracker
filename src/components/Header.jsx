@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import ThemeToggle from './ThemeToggle';
 import { useAuth } from '../context/AuthContext';
 import './Header.css';
 
@@ -76,8 +75,6 @@ function Header() {
         </div>
         
         <div className="nav-actions">
-          <ThemeToggle />
-          
           {isAuthenticated ? (
             <div className="user-menu" ref={menuRef}>
               <div 

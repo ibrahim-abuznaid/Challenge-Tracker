@@ -1,0 +1,69 @@
+server {
+    listen 80;
+    server_name challenge-tracker.vorexai.com www.challenge-tracker.vorexai.com;  # Or your droplet's IP if no domain
+
+    root /root/Challenge-Tracker/dist;  # Path to your built files
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;  # Important for SPAs with client-side routing
+    }
+
+    # Cache static assets
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
+        expires 30d;
+        add_header Cache-Control "public, no-transform";
+    }
+
+    # Enable gzip compression
+    gzip on;
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+}
+
+--
+
+server {
+    server_name challenge-tracker.vorexai.com www.challenge-tracker.vorexai.com;
+
+    root /root/Challenge-Tracker/dist;  # Path to your built files
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;  # Important for SPAs with client-side routing
+    }
+
+    # Cache static assets
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
+        expires 30d;
+        add_header Cache-Control "public, no-transform";
+    }
+
+    # Enable gzip compression
+    gzip on;
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/challenge-tracker.vorexai.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/challenge-tracker.vorexai.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+}
+
+server {
+    if ($host = www.challenge-tracker.vorexai.com) {
+        return 301 https://$host$request_uri;
+    }
+
+    if ($host = challenge-tracker.vorexai.com) {
+        return 301 https://$host$request_uri;
+    }
+
+    listen 80;
+    server_name challenge-tracker.vorexai.com www.challenge-tracker.vorexai.com;
+    return 404; # managed by Certbot
+}
+#!/bin/bash
+cd /root/Challenge-Tracker
+git pull
+npm install
+npm run build

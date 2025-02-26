@@ -1,5 +1,10 @@
 body {
   margin: 0;
+  padding: 0;
+  background-color: #111827; /* Dark background */
+  color: #f1f5f9; /* Light text */
+  min-height: 100vh;
+  overflow-x: hidden;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -14,33 +19,36 @@ code {
 
 /* Add these global text styles */
 :root {
-  /* Add text variables */
-  --text-tertiary: #6b7280;
-  --font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  
-  /* Button colors */
+  /* Apply dark theme colors by default */
+  --background: #111827;
+  --card-background: #1e293b;
+  --text-color: #f1f5f9;
+  --text-secondary: #cbd5e1;
   --primary-color: #4285f4;
-  --primary-dark: #3367d6;
-  --success-color: #0f9d58;
+  --primary-dark: #1a73e8;
+  --secondary-color: #34a853;
   --danger-color: #ea4335;
-  --secondary-background: #f1f5f9;
+  --warning-color: #fbbc05;
+  --success-color: #10b981;
+  --info-color: #64b5f6;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-radius: 8px;
+  --input-background: rgba(255, 255, 255, 0.05);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --header-height: 60px;
+  
+  font-family: 'Inter', system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* Ensure proper text contrast in all themes */
-[data-theme='dark'] {
-  --text-color: rgba(255, 255, 255, 0.95);
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --text-tertiary: rgba(255, 255, 255, 0.5);
-  --primary-color: #4285f4; /* Keep blue more visible in dark mode */
-  --primary-dark: #5c9eff; /* Slightly lighter for dark mode */
-  --success-color: #34a853; /* Brighter green for dark mode */
-  --secondary-background: rgba(255, 255, 255, 0.1);
 }
 
 /* Improve text readability */
