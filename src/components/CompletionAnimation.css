@@ -1,0 +1,125 @@
+.completion-animation-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.completion-card {
+  background-color: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  width: 350px;
+  animation: slideUp 0.4s ease-out;
+}
+
+[data-theme='dark'] .completion-card {
+  background-color: #1e293b;
+  color: white;
+}
+
+.completion-card h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 1.5rem 0 0.5rem;
+  color: #0f9d58;
+}
+
+[data-theme='dark'] .completion-card h2 {
+  color: #4ade80;
+}
+
+.completion-card p {
+  font-size: 1.1rem;
+  color: #64748b;
+  margin: 0;
+  padding: 0;
+}
+
+[data-theme='dark'] .completion-card p {
+  color: #cbd5e1;
+}
+
+.completion-checkmark {
+  margin: 0 auto;
+  width: 80px;
+  height: 80px;
+}
+
+/* Animated checkmark */
+.checkmark-svg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 3;
+  stroke: #0f9d58;
+  stroke-miterlimit: 10;
+}
+
+[data-theme='dark'] .checkmark-svg {
+  stroke: #4ade80;
+}
+
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.4s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .completion-card {
+    padding: 2rem;
+  }
+  
+  .completion-checkmark {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .completion-card h2 {
+    font-size: 1.5rem;
+  }
+} 

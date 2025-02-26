@@ -1,0 +1,65 @@
+.theme-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle input {
+  opacity: 0;
+  position: absolute;
+}
+
+.toggle-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  width: 50px;
+  height: 26px;
+  background-color: #f1f3f4;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .toggle-label {
+  background-color: #3c4043;
+}
+
+.toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  transition: var(--transition);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #f72585;
+}
+
+input:checked + .toggle-label .toggle-icon {
+  transform: translateX(24px);
+  background-color: #1e1e1e;
+  color: #4cc9f0;
+}
+
+.toggle-label:hover .toggle-icon {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+input:checked + .toggle-label .toggle-icon {
+  animation: spin 0.5s ease-out;
+} 

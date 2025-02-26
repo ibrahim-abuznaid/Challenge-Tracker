@@ -1,0 +1,756 @@
+.active-challenge {
+  padding-bottom: 40px;
+}
+
+.day-indicator {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.challenge-progress {
+  margin-bottom: 20px;
+}
+
+.day-header {
+  margin-bottom: 30px;
+}
+
+.day-header h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.day-header p {
+  color: #5f6368;
+  line-height: 1.6;
+}
+
+.tasks-container {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  border: 1px solid var(--border-color);
+}
+
+.tasks-header {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.task-item {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .task-item {
+  background-color: var(--card-background);
+  border-color: var(--border-color);
+}
+
+.task-item.completed {
+  background-color: rgba(15, 157, 88, 0.1);
+  border-left: 3px solid #0f9d58;
+}
+
+/* Dark mode specific adjustments */
+[data-theme='dark'] .task-item.completed {
+  background-color: rgba(15, 157, 88, 0.2);
+  color: var(--text-color);
+}
+
+.task-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.task-content h4 {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+.task-text {
+  font-weight: 500;
+  color: var(--text-color);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.task-description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.task-item.completed .task-description {
+  color: var(--text-tertiary);
+  text-decoration: none;
+}
+
+.resource-link {
+  display: inline-block;
+  color: #4285f4;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.resource-link:hover {
+  text-decoration: underline;
+}
+
+.task-action {
+  margin-left: 20px;
+}
+
+.task-completed-indicator {
+  color: #0f9d58;
+  font-weight: 500;
+}
+
+/* Dark mode specific adjustments */
+[data-theme='dark'] .task-completed-indicator {
+  color: #4ade80;
+}
+
+.challenge-completed {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.completion-badge-large {
+  width: 100px;
+  height: 100px;
+  background-color: #0f9d58;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 30px;
+}
+
+.checkmark {
+  color: white;
+  font-size: 50px;
+}
+
+.challenge-completed h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #0f9d58;
+}
+
+.challenge-completed p {
+  font-size: 1.2rem;
+  color: #5f6368;
+  margin-bottom: 30px;
+}
+
+.completion-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.completion-message {
+  display: inline-block;
+  background-color: white;
+  color: #0f9d58;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.mark-complete-btn {
+  background-color: var(--success-color);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.mark-complete-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 157, 88, 0.3);
+}
+
+/* Progress bar styling */
+.progress-bar-container {
+  background-color: var(--card-background);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* Enhanced Challenge Page Styling */
+.active-challenge-page {
+  min-height: 100vh;
+  padding: 2rem 0;
+  background-color: var(--background);
+  position: relative;
+}
+
+.active-challenge-card {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.active-challenge-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.active-challenge-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.active-challenge-header h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.challenge-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.challenge-meta span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  background-color: var(--tag-background);
+  color: var(--text-secondary);
+}
+
+.challenge-meta span i {
+  margin-right: 0.5rem;
+}
+
+.challenge-day {
+  color: #ffffff !important;
+  background-color: rgba(59, 130, 246, 0.1) !important;
+}
+
+.challenge-category {
+  color: #ffffff !important;
+  background-color: rgba(16, 185, 129, 0.1) !important;
+}
+
+.active-challenge-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.progress-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.progress-tracker {
+  width: 100%;
+  height: 8px;
+  background-color: var(--background);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #4285f4, #34a853);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.challenge-dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.date-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.date-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.date-value {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.challenge-description {
+  line-height: 1.6;
+  color: var(--text-color);
+  padding: 1.5rem;
+  background-color: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+
+.today-tasks {
+  margin-top: 1rem;
+}
+
+.today-tasks h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.today-tasks h2 i {
+  color: #4285f4;
+}
+
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.task-item:hover {
+  transform: translateX(5px);
+  border-color: #4285f4;
+}
+
+.task-item.completed {
+  background-color: rgba(52, 168, 83, 0.1);
+  border-color: rgba(52, 168, 83, 0.3);
+}
+
+.task-checkbox {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.task-item.completed .task-checkbox {
+  background-color: #34a853;
+  border-color: #34a853;
+}
+
+.checkmark {
+  color: white;
+  font-size: 0.875rem;
+}
+
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.complete-day-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  margin-top: 1rem;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.complete-day-btn:hover {
+  background-color: #3367d6;
+  transform: translateY(-2px);
+}
+
+.complete-day-btn.disabled {
+  background-color: #c2c8d0;
+  color: #4a5568;
+  cursor: not-allowed;
+  opacity: 0.8;
+  text-shadow: none;
+}
+
+.complete-day-btn.disabled:hover {
+  transform: none;
+}
+
+.challenge-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: #3367d6;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+[data-theme='dark'] .btn-secondary {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.95);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+  background-color: var(--background);
+  border-color: var(--text-secondary);
+}
+
+.completion-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  animation: fadeIn 0.5s ease;
+}
+
+.completion-message {
+  text-align: center;
+  color: white;
+  background-color: rgba(66, 133, 244, 0.9);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 90%;
+  width: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: scaleIn 0.5s ease;
+  z-index: 1001;
+}
+
+.completion-message h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.confetti {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  pointer-events: none;
+  background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50" fill="%234285f4"/></svg>');
+  animation: confetti 2s ease infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes confetti {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .active-challenge-card {
+    padding: 1.5rem;
+  }
+  
+  .active-challenge-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .challenge-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .challenge-meta span {
+    width: 100%;
+  }
+  
+  .challenge-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+}
+
+/* CSS variables - add these to your :root in App.css if not already present */
+:root {
+  --primary-color: #4285f4;
+  --primary-color-dark: #3367d6;
+  --card-background-lighter: rgba(255, 255, 255, 0.03);
+}
+
+/* Points animation overlay */
+.points-animation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.points-animation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.9), rgba(255, 165, 0, 0.9));
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  animation: pop-in 0.5s ease-out forwards, fade-out 0.5s ease-in 2.5s forwards;
+  transform: scale(0.8);
+  opacity: 0;
+}
+
+.points-animation-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
+}
+
+.points-animation-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.points-animation-message {
+  font-size: 1.25rem;
+  color: white;
+  margin-top: 0.5rem;
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+/* Add a visual cue for task completion */
+.task-complete-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: var(--success-color);
+  color: white;
+  border-radius: 50%;
+  margin-right: 8px;
+  transform: scale(0);
+  animation: checkmark-pop 0.3s ease-out forwards;
+}
+
+@keyframes checkmark-pop {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Enhance task completion UI */
+.task-item.completed .task-header {
+  position: relative;
+}
+
+.task-item.completed .task-completed-indicator {
+  display: flex;
+  align-items: center;
+  background-color: var(--success-color-light);
+  color: var(--success-color);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.task-item.completed .task-completed-indicator::before {
+  content: '✓';
+  display: inline-block;
+  margin-right: 4px;
+  font-weight: bold;
+}
+
+/* Add hover effect to make tasks interactive */
+.task-item:not(.completed):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Add points indicator to tasks */
+.task-points {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: auto;
+}
+
+[data-theme='dark'] .task-points {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.task-points::before {
+  content: '⭐';
+  font-size: 0.75rem;
+} 

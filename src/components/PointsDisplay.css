@@ -1,0 +1,153 @@
+.points-display {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.points-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.points-icon {
+  font-size: 1.5rem;
+  color: gold;
+  filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.5));
+}
+
+.points-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.points-label {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-left: 0.25rem;
+}
+
+.points-animation {
+  position: absolute;
+  right: 0;
+  top: -20px;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 20px;
+  font-weight: bold;
+  animation: float-up 2s ease-out forwards;
+  box-shadow: 0 4px 8px rgba(255, 165, 0, 0.3);
+  z-index: 10;
+}
+
+@keyframes float-up {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  10% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+}
+
+.level-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.level-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.level-number {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.level-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.level-title {
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.level-progress-container {
+  height: 0.5rem;
+  background-color: var(--border-color);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.level-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  border-radius: 999px;
+  transition: width 0.5s ease-out;
+}
+
+.level-progress-text {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .points-display {
+  background-color: rgba(30, 41, 59, 0.5);
+  border-color: rgba(71, 85, 105, 0.3);
+}
+
+[data-theme='dark'] .level-progress-container {
+  background-color: rgba(71, 85, 105, 0.3);
+}
+
+/* Compact mobile view */
+@media (max-width: 768px) {
+  .points-display {
+    padding: 0.75rem;
+  }
+  
+  .level-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .level-info {
+    width: 100%;
+  }
+} 

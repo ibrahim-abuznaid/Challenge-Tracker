@@ -1,0 +1,210 @@
+.admin-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.admin-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.admin-header h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.admin-header p {
+  color: var(--text-secondary);
+}
+
+/* Challenge table styles */
+.challenges-table-container {
+  margin-top: 40px;
+  overflow-x: auto;
+}
+
+.challenges-table-container h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+
+.challenges-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.challenges-table th,
+.challenges-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.challenges-table th {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+}
+
+.challenges-table tr:last-child td {
+  border-bottom: none;
+}
+
+.challenges-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.challenges-table tbody tr:hover {
+  background-color: var(--hover-color);
+}
+
+/* Badge styles */
+.difficulty-badge, .type-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.difficulty-badge.beginner {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.difficulty-badge.intermediate {
+  background-color: #FF9800;
+  color: white;
+}
+
+.difficulty-badge.advanced {
+  background-color: #F44336;
+  color: white;
+}
+
+.type-badge.built-in {
+  background-color: #3F51B5;
+  color: white;
+}
+
+.type-badge.custom {
+  background-color: #9C27B0;
+  color: white;
+}
+
+/* Table action buttons */
+.table-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.btn-view {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-edit {
+  background-color: #FF9800;
+  color: white;
+}
+
+.btn-delete {
+  background-color: #F44336;
+  color: white;
+}
+
+/* Challenge edit form */
+.edit-challenge-form {
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.edit-challenge-form h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--input-background);
+  color: var(--text-color);
+  font-size: 16px;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .edit-challenge-form {
+  background-color: var(--card-background);
+}
+
+[data-theme='dark'] .form-group input,
+[data-theme='dark'] .form-group textarea,
+[data-theme='dark'] .form-group select {
+  background-color: var(--input-background);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .table-actions {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .btn-sm {
+    width: 100%;
+    text-align: center;
+  }
+} 

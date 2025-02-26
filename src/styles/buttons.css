@@ -1,0 +1,124 @@
+/* Create a new file to centralize button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--primary-color, #4285f4);
+  color: white;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark, #3367d6);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-background, #f1f5f9);
+  color: var(--text-color, #1e293b);
+  border: 1px solid var(--border-color, #e2e8f0);
+}
+
+[data-theme='dark'] .btn-secondary {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.95);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+  background-color: var(--background, #f8fafc);
+  border-color: var(--text-secondary, #64748b);
+}
+
+[data-theme='dark'] .btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-success {
+  background-color: var(--success-color, #0f9d58);
+  color: white;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.btn-success:hover {
+  background-color: #0b8a4b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 157, 88, 0.3);
+}
+
+.btn-danger {
+  background-color: var(--danger-color, #ea4335);
+  color: white;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.btn-danger:hover {
+  background-color: #d73128;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(234, 67, 53, 0.3);
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon i,
+.btn-icon svg {
+  margin-right: 0.5rem;
+}
+
+/* Add these styles at the end of the file */
+.btn-create {
+  background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  font-weight: 600;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-create:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(66, 133, 244, 0.3);
+  background: linear-gradient(45deg, var(--primary-dark), var(--primary-color));
+}
+
+.btn-create:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .btn-create {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+} 

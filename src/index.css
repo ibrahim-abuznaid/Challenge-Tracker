@@ -11,3 +11,44 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Add these global text styles */
+:root {
+  /* Add text variables */
+  --text-tertiary: #6b7280;
+  --font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  
+  /* Button colors */
+  --primary-color: #4285f4;
+  --primary-dark: #3367d6;
+  --success-color: #0f9d58;
+  --danger-color: #ea4335;
+  --secondary-background: #f1f5f9;
+}
+
+body {
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure proper text contrast in all themes */
+[data-theme='dark'] {
+  --text-color: rgba(255, 255, 255, 0.95);
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-tertiary: rgba(255, 255, 255, 0.5);
+  --primary-color: #4285f4; /* Keep blue more visible in dark mode */
+  --primary-dark: #5c9eff; /* Slightly lighter for dark mode */
+  --success-color: #34a853; /* Brighter green for dark mode */
+  --secondary-background: rgba(255, 255, 255, 0.1);
+}
+
+/* Improve text readability */
+p, li, span {
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+  margin-top: 0;
+} 
